@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Panel demo | pideaqui.com</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <header class="topbar">
+      <div class="container topbar-inner">
+        <a class="brand" href="index.html">pide<span>aqui</span>.com</a>
+        <nav class="nav">
+          <a class="nav-link" href="index.html">Inicio</a>
+          <a class="nav-link" href="registro.html">Registra tu tienda</a>
+          <a class="nav-link" href="login.html">Acceder</a>
+          <a class="nav-link active" href="dashboard-demo.html">Demo panel</a>
+        </nav>
+      </div>
+    </header>
+
+    <main class="dashboard">
+      <div class="container">
+        <h1 style="font-size: 2rem; margin-bottom: 18px">Panel de control · tienda-demo.pideaqui.com</h1>
+
+        <section class="kpi-grid">
+          <article class="kpi">
+            <small>Ventas hoy</small>
+            <strong>$2,145</strong>
+          </article>
+          <article class="kpi">
+            <small>Pedidos nuevos</small>
+            <strong>18</strong>
+          </article>
+          <article class="kpi">
+            <small>Entregas pendientes</small>
+            <strong>9</strong>
+          </article>
+          <article class="kpi">
+            <small>Stock crítico</small>
+            <strong>6 productos</strong>
+          </article>
+        </section>
+
+        <section class="columns">
+          <article class="panel">
+            <h2 style="margin-top: 0">Pedidos recientes</h2>
+            <table class="table">
+              <thead>
+                <tr>
+                  <th>#</th>
+                  <th>Cliente</th>
+                  <th>Total</th>
+                  <th>Estado</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>5412</td>
+                  <td>Laura M.</td>
+                  <td>$84</td>
+                  <td><span class="tag warning">Preparando</span></td>
+                </tr>
+                <tr>
+                  <td>5411</td>
+                  <td>Juan R.</td>
+                  <td>$46</td>
+                  <td><span class="tag success">Despachado</span></td>
+                </tr>
+                <tr>
+                  <td>5408</td>
+                  <td>Camila G.</td>
+                  <td>$21</td>
+                  <td><span class="tag danger">Sin stock</span></td>
+                </tr>
+              </tbody>
+            </table>
+          </article>
+
+          <aside class="panel">
+            <h2 style="margin-top: 0">Alertas de inventario</h2>
+            <div class="list">
+              <div class="list-item">
+                <strong>Café molido 500g</strong>
+                <span>Quedan 3 unidades</span>
+              </div>
+              <div class="list-item">
+                <strong>Torta de zanahoria</strong>
+                <span>Quedan 2 unidades</span>
+              </div>
+              <div class="list-item">
+                <strong>Empaque térmico mediano</strong>
+                <span>Quedan 5 unidades</span>
+              </div>
+            </div>
+          </aside>
+        </section>
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="container">Panel de ejemplo para validar estructura funcional del producto.</div>
+    </footer>
+  </body>
+</html>

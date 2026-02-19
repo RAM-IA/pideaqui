@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Acceder | pideaqui.com</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <header class="topbar">
+      <div class="container topbar-inner">
+        <a class="brand" href="index.html">pide<span>aqui</span>.com</a>
+        <nav class="nav">
+          <a class="nav-link" href="index.html">Inicio</a>
+          <a class="nav-link" href="registro.html">Registra tu tienda</a>
+          <a class="nav-link active" href="login.html">Acceder</a>
+          <a class="nav-link" href="dashboard-demo.html">Demo panel</a>
+        </nav>
+      </div>
+    </header>
+
+    <main class="container">
+      <section class="form-wrap" style="max-width: 460px">
+        <h1>Accede a tu panel</h1>
+        <p class="help">
+          Inicia sesión para administrar tu catálogo, pedidos y entregas.
+        </p>
+
+        <form>
+          <div class="field">
+            <label for="account">Correo o subdominio</label>
+            <input
+              id="account"
+              type="text"
+              placeholder="Ej. mi-tienda@correo.com"
+            />
+          </div>
+
+          <div class="field">
+            <label for="password">Contraseña</label>
+            <input id="password" type="password" placeholder="••••••••" />
+          </div>
+
+          <div class="hero-actions">
+            <button class="btn btn-primary" type="button">Entrar</button>
+            <a class="btn btn-outline" href="registro.html">Crear cuenta</a>
+          </div>
+        </form>
+      </section>
+    </main>
+
+    <footer class="footer">
+      <div class="container">¿No tienes tienda? Regístrate y solicita tu subdominio.</div>
+    </footer>
+  </body>
+</html>

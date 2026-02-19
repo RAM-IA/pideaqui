@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Registrar tienda | pideaqui.com</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <header class="topbar">
+      <div class="container topbar-inner">
+        <a class="brand" href="index.html">pide<span>aqui</span>.com</a>
+        <nav class="nav">
+          <a class="nav-link" href="index.html">Inicio</a>
+          <a class="nav-link active" href="registro.html">Registra tu tienda</a>
+          <a class="nav-link" href="login.html">Acceder</a>
+          <a class="nav-link" href="dashboard-demo.html">Demo panel</a>
+        </nav>
+      </div>
+    </header>
+
+    <main class="container">
+      <section class="form-wrap">
+        <h1>Crea tu tienda en pideaqui.com</h1>
+        <p class="help">
+          Formulario demo para registrar comerciantes y solicitar subdominio.
+        </p>
+
+        <form>
+          <div class="form-row">
+            <div class="field">
+              <label for="ownerName">Nombre del propietario</label>
+              <input id="ownerName" type="text" placeholder="Ej. Ana López" />
+            </div>
+            <div class="field">
+              <label for="storeName">Nombre de la tienda</label>
+              <input id="storeName" type="text" placeholder="Ej. Dulce Hogar" />
+            </div>
+          </div>
+
+          <div class="form-row">
+            <div class="field">
+              <label for="email">Correo de contacto</label>
+              <input id="email" type="email" placeholder="tienda@correo.com" />
+            </div>
+            <div class="field">
+              <label for="phone">Teléfono / WhatsApp</label>
+              <input id="phone" type="tel" placeholder="+57 300 000 0000" />
+            </div>
+          </div>
+
+          <div class="field">
+            <label for="subdomain">Subdominio deseado</label>
+            <input id="subdomain" type="text" placeholder="mitienda" />
+            <p class="tip">Vista previa: mitienda.pideaqui.com</p>
+          </div>
+
+          <div class="form-row">
+            <div class="field">
+              <label for="category">Categoría principal</label>
+              <select id="category">
+                <option>Restaurantes</option>
+                <option>Moda</option>
+                <option>Tecnología</option>
+                <option>Hogar</option>
+                <option>Servicios</option>
+              </select>
+            </div>
+            <div class="field">
+              <label for="city">Ciudad</label>
+              <input id="city" type="text" placeholder="Ej. Medellín" />
+            </div>
+          </div>
+
+          <div class="field">
+            <label for="notes">¿Qué necesitas gestionar?</label>
+            <textarea
+              id="notes"
+              rows="4"
+              placeholder="Ej. catálogo grande, rutas de entrega, control de inventario por sucursal..."
+            ></textarea>
+          </div>
+
+          <div class="hero-actions">
+            <button class="btn btn-primary" type="button">Enviar solicitud</button>
+            <a class="btn btn-outline" href="index.html">Volver al inicio</a>
+          </div>
+        </form>
+      </section>
+    </main>
+
+    <footer class="footer">
+      <div class="container">Este formulario es una maqueta de prueba (sin envío real).</div>
+    </footer>
+  </body>
+</html>
