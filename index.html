@@ -3,13 +3,16 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>pideaqui.com | Tu tienda en línea con subdominio</title>
+    <title>pidoaqui.com | Pide en negocios cerca de ti</title>
     <link rel="stylesheet" href="styles.css" />
   </head>
   <body>
     <header class="topbar">
       <div class="container topbar-inner">
-        <a class="brand" href="index.html">pide<span>aqui</span>.com</a>
+        <a class="brand" href="index.html">
+          <img class="brand-logo" src="LogoPidoAqui1.PNG" alt="Logo pidoaqui" />
+          <span class="brand-text">pido<span>aqui</span>.com</span>
+        </a>
         <nav class="nav">
           <a class="nav-link active" href="index.html">Inicio</a>
           <a class="nav-link" href="registro.html">Registra tu tienda</a>
@@ -23,87 +26,334 @@
       <section class="hero">
         <div class="container hero-grid">
           <div>
-            <span class="badge">Plataforma en construcción</span>
-            <h1>
-              Crea tu tienda en línea y publícala con tu propio subdominio en
-              minutos
-            </h1>
+            <span class="badge" id="locationBadge">Compra en tu zona</span>
+            <h1>Encuentra y pide en tus tiendas favoritas desde un solo lugar</h1>
             <p class="lead">
-              pideaqui.com te permite subir productos, organizar catálogos,
-              gestionar ventas, pedidos, entregas e inventarios desde un solo
-              panel.
+              Descubre negocios locales de alimentos, fruterías, tiendas de
+              conveniencia, ferreterías, farmacias y más. Elige tu categoría,
+              revisa sus productos y haz tu pedido en minutos.
             </p>
             <div class="hero-actions">
-              <a class="btn btn-primary" href="registro.html"
-                >Comenzar registro</a
-              >
-              <a class="btn btn-outline" href="dashboard-demo.html"
-                >Ver panel demo</a
-              >
+              <a class="btn btn-primary" href="#negocios">Explorar negocios</a>
+              <a class="btn btn-outline" href="registro.html">Quiero vender</a>
             </div>
           </div>
-          <div class="panel">
-            <div class="fake-window">
-              <div class="window-head">tienda-demo.pideaqui.com</div>
-              <div class="window-body">
-                <div class="stat-grid">
-                  <article class="stat">
-                    <p class="label">Pedidos hoy</p>
-                    <p class="value">18</p>
-                  </article>
-                  <article class="stat">
-                    <p class="label">Ventas del día</p>
-                    <p class="value">$2,145</p>
-                  </article>
-                  <article class="stat">
-                    <p class="label">Productos activos</p>
-                    <p class="value">132</p>
-                  </article>
-                  <article class="stat">
-                    <p class="label">Entregas en ruta</p>
-                    <p class="value">9</p>
-                  </article>
+          <div class="panel banner-slider" aria-label="Promociones destacadas">
+            <div class="slides" id="slides">
+              <article class="slide active">
+                <img
+                  src="https://images.unsplash.com/photo-1514933651103-005eec06c04b?auto=format&fit=crop&w=1200&q=80"
+                  alt="Promoción de restaurantes"
+                />
+                <div class="slide-content">
+                  <h3>Promos de restaurantes</h3>
+                  <p>Combos diarios y entregas rápidas en tu barrio.</p>
                 </div>
-              </div>
+              </article>
+              <article class="slide">
+                <img
+                  src="https://images.unsplash.com/photo-1488459716781-31db52582fe9?auto=format&fit=crop&w=1200&q=80"
+                  alt="Frutería local"
+                />
+                <div class="slide-content">
+                  <h3>Frutas frescas</h3>
+                  <p>Compra productos del día en fruterías cercanas.</p>
+                </div>
+              </article>
+              <article class="slide">
+                <img
+                  src="https://images.unsplash.com/photo-1587854692152-cbe660dbde88?auto=format&fit=crop&w=1200&q=80"
+                  alt="Farmacia de barrio"
+                />
+                <div class="slide-content">
+                  <h3>Farmacias y conveniencia</h3>
+                  <p>Medicamentos y productos esenciales cuando los necesitas.</p>
+                </div>
+              </article>
             </div>
+            <div class="slider-dots" id="sliderDots" aria-hidden="true"></div>
           </div>
         </div>
       </section>
 
-      <section class="section">
+      <section class="section" id="negocios">
         <div class="container">
-          <h2>Todo lo que necesitas para vender</h2>
-          <div class="cards">
-            <article class="card">
-              <h3>Catálogo centralizado</h3>
+          <h2>Categorías disponibles</h2>
+          <div class="category-list" id="categoryFilters">
+            <button class="category-pill active" type="button" data-filter="all">Todas</button>
+            <button class="category-pill" type="button" data-filter="alimentos">Alimentos</button>
+            <button class="category-pill" type="button" data-filter="fruterias">Fruterías</button>
+            <button class="category-pill" type="button" data-filter="conveniencia">Tiendas de conveniencia</button>
+            <button class="category-pill" type="button" data-filter="ferreterias">Ferreterías</button>
+            <button class="category-pill" type="button" data-filter="farmacias">Farmacias</button>
+            <button class="category-pill" type="button" data-filter="mascotas">Mascotas</button>
+            <button class="category-pill" type="button" data-filter="licores">Licores</button>
+          </div>
+          <p class="results-count" id="resultsCount">Mostrando 0 negocios</p>
+          <div
+            class="results-progress"
+            id="resultsProgress"
+            role="progressbar"
+            aria-label="Negocios mostrados"
+            aria-valuemin="0"
+            aria-valuemax="0"
+            aria-valuenow="0"
+          >
+            <span class="results-progress-bar" id="resultsProgressBar"></span>
+          </div>
+          <p class="results-progress-text" id="resultsProgressText">0% mostrado</p>
+          <div class="cards cards-business" id="businessCards">
+            <article class="card" data-category="alimentos">
+              <h3>Restaurantes</h3>
               <p>
-                Carga productos con precio, stock, categorías, fotos y variantes
-                para mantener tu tienda siempre actualizada.
+                Comida rápida, almuerzos y menús especiales con cobertura local.
               </p>
             </article>
-            <article class="card">
-              <h3>Gestión de pedidos</h3>
+            <article class="card" data-category="fruterias">
+              <h3>Fruterías</h3>
               <p>
-                Visualiza pedidos por estado, asigna entregas y comunica avances
-                a tus clientes desde un solo flujo.
+                Frutas y verduras seleccionadas por comercios cercanos.
               </p>
             </article>
-            <article class="card">
-              <h3>Control de inventario</h3>
+            <article class="card" data-category="conveniencia">
+              <h3>Tiendas de conveniencia</h3>
+              <p>Productos de uso diario con entregas ágiles y horario extendido.</p>
+            </article>
+            <article class="card" data-category="ferreterias">
+              <h3>Ferreterías</h3>
+              <p>Herramientas, repuestos y materiales para hogar y obra.</p>
+            </article>
+            <article class="card" data-category="farmacias">
+              <h3>Farmacias</h3>
+              <p>Medicamentos, cuidado personal y compras programadas.</p>
+            </article>
+            <article class="card" data-category="alimentos">
+              <h3>Panaderías</h3>
               <p>
-                Consulta existencias en tiempo real y recibe alertas para evitar
-                quiebres de stock en productos clave.
+                Pan fresco, pastelería y antojos para cada momento del día.
               </p>
             </article>
           </div>
+          <p class="empty-state" id="emptyState" hidden>
+            Aún no hay negocios de esta categoría en la demo.
+          </p>
         </div>
       </section>
     </main>
 
     <footer class="footer">
       <div class="container">
-        pideaqui.com · Maqueta de prueba para validación de UX y contenido.
+        pidoaqui.com · Maqueta de prueba para validación de experiencia del usuario final.
       </div>
     </footer>
+
+    <script>
+      (function () {
+        const locationBadge = document.getElementById("locationBadge");
+        const defaultBadgeText = "Compra en tu zona";
+
+        function setBadgeLocation(place) {
+          if (!locationBadge || !place) return;
+          const safePlace = String(place).trim();
+          if (!safePlace) return;
+          locationBadge.textContent = "Compra en " + safePlace;
+        }
+
+        function getBestPlaceFromAddress(address) {
+          if (!address) return null;
+          return (
+            address.suburb ||
+            address.neighbourhood ||
+            address.city_district ||
+            address.town ||
+            address.city ||
+            address.county ||
+            null
+          );
+        }
+
+        async function getPlaceFromCoordinates(latitude, longitude) {
+          try {
+            const response = await fetch(
+              "https://nominatim.openstreetmap.org/reverse?format=jsonv2&addressdetails=1&zoom=14&lat=" +
+                encodeURIComponent(latitude) +
+                "&lon=" +
+                encodeURIComponent(longitude)
+            );
+            if (!response.ok) return null;
+            const data = await response.json();
+            return getBestPlaceFromAddress(data.address);
+          } catch (error) {
+            return null;
+          }
+        }
+
+        async function getPlaceFromIp() {
+          try {
+            const response = await fetch("https://ipapi.co/json/");
+            if (!response.ok) return null;
+            const data = await response.json();
+            return data.city || data.region || data.country_name || null;
+          } catch (error) {
+            return null;
+          }
+        }
+
+        async function detectAndSetLocation() {
+          if (!locationBadge) return;
+          locationBadge.textContent = defaultBadgeText;
+
+          if (!navigator.geolocation) {
+            const placeFromIp = await getPlaceFromIp();
+            setBadgeLocation(placeFromIp);
+            return;
+          }
+
+          navigator.geolocation.getCurrentPosition(
+            async function (position) {
+              const placeFromCoordinates = await getPlaceFromCoordinates(
+                position.coords.latitude,
+                position.coords.longitude
+              );
+              if (placeFromCoordinates) {
+                setBadgeLocation(placeFromCoordinates);
+                return;
+              }
+
+              const placeFromIp = await getPlaceFromIp();
+              setBadgeLocation(placeFromIp);
+            },
+            async function () {
+              const placeFromIp = await getPlaceFromIp();
+              setBadgeLocation(placeFromIp);
+            },
+            {
+              enableHighAccuracy: false,
+              timeout: 5000,
+              maximumAge: 600000,
+            }
+          );
+        }
+
+        detectAndSetLocation();
+
+        const slides = Array.from(document.querySelectorAll(".slide"));
+        const dotsContainer = document.getElementById("sliderDots");
+        if (slides.length && dotsContainer) {
+          let current = 0;
+          const dots = slides.map((_, index) => {
+            const dot = document.createElement("button");
+            dot.type = "button";
+            dot.className = "dot";
+            dot.addEventListener("click", function () {
+              current = index;
+              renderSlider();
+            });
+            dotsContainer.appendChild(dot);
+            return dot;
+          });
+
+          function renderSlider() {
+            slides.forEach((slide, index) => {
+              slide.classList.toggle("active", index === current);
+              dots[index].classList.toggle("active", index === current);
+            });
+          }
+
+          renderSlider();
+          setInterval(function () {
+            current = (current + 1) % slides.length;
+            renderSlider();
+          }, 3800);
+        }
+
+        const filterButtons = Array.from(document.querySelectorAll("[data-filter]"));
+        const businessCards = Array.from(document.querySelectorAll("#businessCards .card"));
+        const emptyState = document.getElementById("emptyState");
+        const resultsCount = document.getElementById("resultsCount");
+        const resultsProgress = document.getElementById("resultsProgress");
+        const resultsProgressBar = document.getElementById("resultsProgressBar");
+        const resultsProgressText = document.getElementById("resultsProgressText");
+        const businessSection = document.getElementById("negocios");
+        const totalBusinesses = businessCards.length;
+
+        if (
+          !filterButtons.length ||
+          !businessCards.length ||
+          !emptyState ||
+          !resultsCount ||
+          !resultsProgress ||
+          !resultsProgressBar ||
+          !resultsProgressText ||
+          !businessSection
+        )
+          return;
+
+        function applyFilter(filter, label) {
+          let visibleCount = 0;
+
+          businessCards.forEach((card) => {
+            const category = card.dataset.category;
+            const isVisible = filter === "all" || category === filter;
+            if (isVisible) {
+              card.classList.remove("is-hidden");
+              card.classList.remove("is-animated");
+              void card.offsetWidth;
+              card.classList.add("is-animated");
+              visibleCount += 1;
+              return;
+            }
+
+            card.classList.remove("is-animated");
+            card.classList.add("is-hidden");
+          });
+
+          emptyState.hidden = visibleCount > 0;
+
+          const progress = totalBusinesses ? (visibleCount / totalBusinesses) * 100 : 0;
+          const roundedProgress = Math.round(progress);
+          resultsProgressBar.style.width = progress + "%";
+          resultsProgressText.textContent = roundedProgress + "% mostrado";
+          resultsProgress.setAttribute("aria-valuemax", String(totalBusinesses));
+          resultsProgress.setAttribute("aria-valuenow", String(visibleCount));
+
+          const noun = visibleCount === 1 ? "negocio" : "negocios";
+          if (filter === "all") {
+            resultsCount.textContent =
+              "Mostrando " + visibleCount + " de " + totalBusinesses + " " + noun;
+            return;
+          }
+
+          resultsCount.textContent =
+            "Mostrando " +
+            visibleCount +
+            " de " +
+            totalBusinesses +
+            " " +
+            noun +
+            " en " +
+            label;
+        }
+
+        filterButtons.forEach((button) => {
+          button.addEventListener("click", function () {
+            const selected = button.dataset.filter;
+            const selectedLabel = button.textContent.trim();
+            filterButtons.forEach((item) => item.classList.remove("active"));
+            button.classList.add("active");
+            applyFilter(selected, selectedLabel);
+
+            if (window.matchMedia("(max-width: 960px)").matches) {
+              businessSection.scrollIntoView({
+                behavior: "smooth",
+                block: "start",
+              });
+            }
+          });
+        });
+
+        applyFilter("all", "Todas");
+      })();
+    </script>
   </body>
 </html>
