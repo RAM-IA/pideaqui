@@ -71,7 +71,29 @@ El worker:
 - actualiza metadatos del tenant en `tenants` y `tenant_datastores`
 - deja `done` o `failed`
 
-## 6) Cloudflare (fase siguiente)
+## 6) API mínima local
+
+```bash
+npm run api:start
+```
+
+Endpoints MVP:
+
+- `GET /health`
+- `POST /tenants`
+
+Body para `POST /tenants`:
+
+```json
+{
+	"slug": "tienda-demo",
+	"nombre_comercial": "Tienda Demo",
+	"nif_cif": "RFC-123456",
+	"email_contacto": "demo@correo.com"
+}
+```
+
+## 7) Cloudflare (fase siguiente)
 
 Patrón recomendado:
 

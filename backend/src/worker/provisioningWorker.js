@@ -10,19 +10,21 @@ const WORKER_ID = `worker-${process.pid}`;
 async function pickJob() {
   const query = `
     ;WITH next_job AS (
-      SELECT TOP (1) id, tenant_id, action
+      SELECT TOP (1) id
       FROM provisioning_jobs WITH (ROWLOCK, READPAST, UPDLOCK)
       WHERE status = 'queued' AND run_after <= SYSUTCDATETIME()
       ORDER BY id ASC
     )
-    UPDATE next_job
+    UPDATE j
     SET
       status = 'running',
       locked_at = SYSUTCDATETIME(),
       locked_by = @workerId,
       attempts = attempts + 1,
       updated_at = SYSUTCDATETIME()
-    OUTPUT INSERTED.id, INSERTED.tenant_id, INSERTED.action;
+    OUTPUT INSERTED.id, INSERTED.tenant_id, INSERTED.action
+    FROM provisioning_jobs j
+    INNER JOIN next_job n ON n.id = j.id;
   `;
 
   const rows = await executeSqlServerQuery('master', query, { workerId: WORKER_ID });

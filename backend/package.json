@@ -4,6 +4,8 @@
   "private": true,
   "type": "module",
   "scripts": {
+    "api:start": "node src/server/apiServer.js",
+    "api:dev": "node src/server/apiServer.js",
     "worker:provision": "node src/worker/provisioningWorker.js",
     "migrate:master": "node src/scripts/runSqlMigration.js master",
     "migrate:tenant": "node src/scripts/runSqlMigration.js tenant"
