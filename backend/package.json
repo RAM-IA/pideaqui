@@ -1,0 +1,15 @@
+{
+  "name": "pideaqui-backend",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "worker:provision": "node src/worker/provisioningWorker.js",
+    "migrate:master": "node src/scripts/runSqlMigration.js master",
+    "migrate:tenant": "node src/scripts/runSqlMigration.js tenant"
+  },
+  "dependencies": {
+    "dotenv": "^16.4.5",
+    "mssql": "^11.0.1"
+  }
+}
