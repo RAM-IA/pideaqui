@@ -1,6 +1,6 @@
 (() => {
-  const USERS_KEY = "pideaqui_mock_users";
-  const SESSION_KEY = "pideaqui_mock_session";
+  const USERS_KEY = "pidoaqui_mock_users";
+  const SESSION_KEY = "pidoaqui_mock_session";
 
   function safeParse(value, fallback) {
     try {

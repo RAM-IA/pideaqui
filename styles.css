@@ -1029,6 +1029,102 @@ textarea:focus {
   padding-left: 10px;
 }
 
+.tuidea-hero {
+  background: linear-gradient(120deg, #eaf2ff, #f8fbff);
+  padding-top: 56px;
+  padding-bottom: 24px;
+}
+
+.tuidea-hero h1 {
+  margin-bottom: 12px;
+}
+
+.tuidea-banner-wrap {
+  padding-top: 14px;
+}
+
+.promo-rotator {
+  position: relative;
+  min-height: 210px;
+  border-radius: 14px;
+  border: 1px solid var(--border);
+  background: var(--surface);
+  box-shadow: var(--shadow);
+  overflow: hidden;
+}
+
+.promo-item {
+  position: absolute;
+  inset: 0;
+  opacity: 0;
+  display: grid;
+  align-content: center;
+  gap: 10px;
+  padding: 26px 32px;
+  transition: opacity 0.35s ease;
+  background: linear-gradient(120deg, rgba(31, 103, 210, 0.08), rgba(242, 139, 34, 0.08));
+}
+
+.promo-item.active {
+  opacity: 1;
+}
+
+.promo-item h2 {
+  margin: 0;
+  font-size: clamp(1.35rem, 2.8vw, 2rem);
+}
+
+.promo-item p {
+  margin: 0;
+}
+
+.promo-tag {
+  display: inline-block;
+  width: fit-content;
+  margin: 0;
+  padding: 6px 10px;
+  border-radius: 999px;
+  font-weight: 700;
+  font-size: 0.82rem;
+  color: var(--primary-dark);
+  border: 1px solid #c7d8fd;
+  background: #edf3ff;
+}
+
+.promo-dots {
+  display: flex;
+  justify-content: center;
+  gap: 8px;
+  margin-top: 12px;
+}
+
+.promo-dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  border: 0;
+  background: #cad6f8;
+  cursor: pointer;
+}
+
+.promo-dot.active {
+  background: var(--primary);
+}
+
+.tuidea-products {
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+
+.tuidea-card {
+  display: grid;
+  gap: 12px;
+  align-content: start;
+}
+
+.tuidea-card .btn {
+  justify-self: start;
+}
+
 @media (max-width: 960px) {
   .hero-grid,
   .cards,
@@ -1069,6 +1165,10 @@ textarea:focus {
   }
 
   .kpi-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .tuidea-products {
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 }
@@ -1142,6 +1242,14 @@ textarea:focus {
 
   .slides {
     height: 220px;
+  }
+
+  .promo-item {
+    padding: 20px;
+  }
+
+  .tuidea-products {
+    grid-template-columns: 1fr;
   }
 }
 

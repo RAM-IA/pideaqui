@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>misideas.pidoaqui.com | Tienda virtual</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <header class="topbar">
+      <div class="container topbar-inner">
+        <a class="brand" href="index.html">
+          <img class="brand-logo" src="LogoPidoAqui1.PNG" alt="Logo pidoaqui" />
+          <span class="brand-text">pide<span>aqui</span>.com</span>
+        </a>
+        <nav class="nav">
+          <a class="nav-link" href="index.html">Inicio</a>
+          <a class="nav-link" href="registro.html">Registra tu tienda</a>
+          <a class="nav-link active" href="misideas.html">misideas.pidoaqui.com</a>
+          <a class="nav-link" href="login.html">Acceder</a>
+        </nav>
+      </div>
+    </header>
+
+    <main>
+      <section class="hero tuidea-hero">
+        <div class="container">
+          <span class="badge">Subdominio activo</span>
+          <h1>misideas.pidoaqui.com · Tienda de productos personalizados</h1>
+          <p class="lead">
+            Personaliza y compra tazas, playeras, gorras, lapiceros, stickers y más para tu marca,
+            evento o regalo.
+          </p>
+        </div>
+      </section>
+
+      <section class="section tuidea-banner-wrap" aria-label="Promociones destacadas">
+        <div class="container">
+          <div class="promo-rotator" id="promoRotator">
+            <article class="promo-item active" data-title="Promoción de Playeras">
+              <p class="promo-tag">Playeras personalizadas</p>
+              <h2>20% de descuento en playeras full color</h2>
+              <p>En pedidos desde 12 piezas con impresión frontal y trasera.</p>
+            </article>
+            <article class="promo-item" data-title="Promoción de Gorras">
+              <p class="promo-tag">Gorras personalizadas</p>
+              <h2>Llévate 10 + 2 gratis en gorras bordadas</h2>
+              <p>Ideal para equipos, eventos y activaciones de marca.</p>
+            </article>
+            <article class="promo-item" data-title="Promoción de Tazas">
+              <p class="promo-tag">Tazas personalizadas</p>
+              <h2>Promo 2x1 en tazas para regalo corporativo</h2>
+              <p>Aplicable en diseño estándar para pedidos de temporada.</p>
+            </article>
+          </div>
+          <div class="promo-dots" id="promoDots" aria-label="Cambiar promoción"></div>
+        </div>
+      </section>
+
+      <section class="section">
+        <div class="container">
+          <h2>Catálogo de productos</h2>
+          <div class="cards tuidea-products">
+            <article class="card tuidea-card">
+              <h3>Tazas</h3>
+              <p>Tazas de cerámica y mágicas con impresión personalizada.</p>
+              <button class="btn btn-outline" type="button">Ver diseños</button>
+            </article>
+            <article class="card tuidea-card">
+              <h3>Playeras</h3>
+              <p>Playeras de algodón con estampado DTG, DTF o vinil textil.</p>
+              <button class="btn btn-outline" type="button">Ver diseños</button>
+            </article>
+            <article class="card tuidea-card">
+              <h3>Gorras</h3>
+              <p>Gorras trucker y clásicas con bordado o serigrafía.</p>
+              <button class="btn btn-outline" type="button">Ver diseños</button>
+            </article>
+            <article class="card tuidea-card">
+              <h3>Lapiceros</h3>
+              <p>Lapiceros promocionales con logo para campañas y eventos.</p>
+              <button class="btn btn-outline" type="button">Ver diseños</button>
+            </article>
+            <article class="card tuidea-card">
+              <h3>Stickers</h3>
+              <p>Stickers troquelados en vinil resistente para branding.</p>
+              <button class="btn btn-outline" type="button">Ver diseños</button>
+            </article>
+            <article class="card tuidea-card">
+              <h3>Otros</h3>
+              <p>Solicita artículos personalizados adicionales bajo cotización.</p>
+              <button class="btn btn-outline" type="button">Ver opciones</button>
+            </article>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="footer">
+      <div class="container">misideas.pidoaqui.com · Tienda virtual demo de productos personalizados.</div>
+    </footer>
+
+    <script>
+      (function () {
+        const rotator = document.getElementById("promoRotator");
+        const dotsWrap = document.getElementById("promoDots");
+        if (!rotator || !dotsWrap) return;
+
+        const items = Array.from(rotator.querySelectorAll(".promo-item"));
+        if (!items.length) return;
+
+        let current = 0;
+        let timerId = null;
+
+        const dots = items.map((item, index) => {
+          const dot = document.createElement("button");
+          dot.type = "button";
+          dot.className = "promo-dot" + (index === 0 ? " active" : "");
+          dot.setAttribute("aria-label", item.dataset.title || `Promoción ${index + 1}`);
+          dot.addEventListener("click", () => {
+            show(index);
+            restart();
+          });
+          dotsWrap.appendChild(dot);
+          return dot;
+        });
+
+        function show(index) {
+          items[current].classList.remove("active");
+          dots[current].classList.remove("active");
+          current = index;
+          items[current].classList.add("active");
+          dots[current].classList.add("active");
+        }
+
+        function next() {
+          show((current + 1) % items.length);
+        }
+
+        function restart() {
+          if (timerId) clearInterval(timerId);
+          timerId = setInterval(next, 4200);
+        }
+
+        restart();
+      })();
+    </script>
+  </body>
+</html>

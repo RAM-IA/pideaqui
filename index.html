@@ -25,6 +25,7 @@
         <nav class="nav">
           <a class="nav-link active" href="index.html">Inicio</a>
           <a class="nav-link" href="registro.html">Registra tu tienda</a>
+          <a class="nav-link" href="misideas.html">misideas.pidoaqui.com</a>
           <a class="nav-link" href="login.html">Acceder</a>
           <a class="nav-link" href="dashboard-demo.html">Demo panel</a>
         </nav>
@@ -38,6 +39,7 @@
       <a class="side-item" href="login.html">Iniciar sesión</a>
       <a class="side-link" href="registro.html">Crear una cuenta de negocios</a>
       <a class="side-link" href="registro.html">Agrega tu tienda</a>
+      <a class="side-link" href="misideas.html">Ver tienda misideas</a>
       <a class="side-link" href="registro.html">Regístrate para realizar entregas</a>
       <a class="side-link" href="dashboard-demo.html">Ver panel demo</a>
 
@@ -287,9 +289,9 @@
         const marketFilterButtons = Array.from(document.querySelectorAll("[data-market-filter]"));
         const quickFilterButtons = Array.from(document.querySelectorAll("[data-quick-filter]"));
 
-        const LAST_LOCATION_KEY = "pideaqui_last_location";
-        const LAST_CATEGORY_KEY = "pideaqui_last_category";
-        const LAST_QUICK_FILTER_KEY = "pideaqui_last_quick_filter";
+        const LAST_LOCATION_KEY = "pidoaqui_last_location";
+        const LAST_CATEGORY_KEY = "pidoaqui_last_category";
+        const LAST_QUICK_FILTER_KEY = "pidoaqui_last_quick_filter";
 
         let userCoordinates = null;
         let debounceTimer = null;
